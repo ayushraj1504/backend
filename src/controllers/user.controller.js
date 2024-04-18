@@ -1,5 +1,5 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
-import {ApiError} from "../utils/apiError.js";
+import {ApiError} from "../utils/ApiError.js";
 import {User} from "../models/user.model.js";
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponce.js";
@@ -93,7 +93,8 @@ const loginUser = asyncHandler(async (req, res) => {
   const {email, username, password} = req.body
 
   // usrename or email
-  if(!username || !email){
+  // if(!username && !email){}
+  if(!(username || email)){
     throw new ApiError(400, "username or password is required");
   }
 
